@@ -24,6 +24,8 @@ class Meals extends React.Component {
                     {this.state.meals.map(item => (
                         <li key={item.idMeal}>
                             <p><b>Nome:</b> {item.strMeal}</p>
+                            <p><b>Categoria:</b> {item.strCategory}</p>
+                            <br/>
                         </li>
                     ))}
                 </ul>
