@@ -19,10 +19,11 @@ class Meals extends React.Component {
         return (
             <div>
                 <h1>Meals</h1>
-
+                <br/><br/>
                 <ul>
                     {this.state.meals.map(item => (
                         <li key={item.idMeal}>
+                            <img src={item.strMealThumb} width="100" height="110" />
                             <p><b>Nome:</b> {item.strMeal}</p>
                             <p><b>Categoria:</b> {item.strCategory}</p>
                             <br/>
