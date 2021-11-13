@@ -11,7 +11,7 @@ export default () => {
             <Route exact path="/" element={<Home/>}/>
             <Route exact path="/meals" element={<Meals/>}/>
             <Route exact path="/meals/:strMeal" render={(props) => 
-                {<Meal {...props} />}
+                <Meal {...props} />
             }/>
         </Routes>    
     )

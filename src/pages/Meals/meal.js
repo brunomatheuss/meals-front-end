@@ -3,14 +3,15 @@ import { useParams } from 'react-router-dom';
 
 
 
-class Meal {
+class Meal extends Component{
 
     state = {
         meal: []
     };
     
+    
     componentDidMount() {
-        var {strMeal} = this.props.match;
+        var {strMeal} = this.props.match.params;
         console.log(strMeal);
         fetch('https://demo-meals-api.herokuapp.com/v1/meals/' + strMeal.strMeal)
             .then(res => res.json())
@@ -20,6 +21,7 @@ class Meal {
                 });
             });
     }
+    
     render(){
         return (
             <div>
