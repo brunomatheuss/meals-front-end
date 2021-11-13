@@ -1,9 +1,12 @@
-import React, { Component } from 'react';
+import React, { Component, useState } from 'react';
 
 class Meals extends React.Component {
     state = {
         meals: [],
+        filtro: '',
     };
+
+    
 
     componentDidMount() {
         fetch('https://demo-meals-api.herokuapp.com/v1/meals')
@@ -19,6 +22,10 @@ class Meals extends React.Component {
         return (
             <div>
                 <h1>Meals</h1>
+                <br/><br/>
+                <input type="text" value={this.state.filtro} onChange={(ev) => this.setState({
+                    filtro: ev
+                })}></input>
                 <br/><br/>
                 <ul>
                     {this.state.meals.map(item => (
