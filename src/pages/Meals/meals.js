@@ -17,9 +17,6 @@ class Meals extends React.Component {
                 });
             });
     }
-    handleClick() {
-        console.log(this.state.filtro);
-    }
 
     render() {
         return (

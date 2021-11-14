@@ -1,7 +1,4 @@
 import React, { Component } from 'react';
-import { useParams } from 'react-router-dom';
-
-
 
 class Meal extends Component{
 
