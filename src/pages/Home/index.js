@@ -10,6 +10,10 @@ const Page = () => {
                     Click Me!
                 </button>
             </Link>
+            <Link to="/meal">
+                <button type="button">
+                    Click Me2!
+                </button></Link>
         </div>
     );
 }
