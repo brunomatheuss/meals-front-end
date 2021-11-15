@@ -3,11 +3,12 @@ import { Link } from 'react-router-dom';
 
 const Page = () => {
     return (
-        <div>
-            <h1>Welcome to homepage!</h1>
+        <div class = "index">
+            <b><font size = "20">Welcome to homepage!</font></b>
+            <br/>
             <Link to="/meals">
-                <button type="button">
-                    Click Me!
+                <button class="btn first" type="button">
+                    Go to meal list!
                 </button>
             </Link>
         </div>
