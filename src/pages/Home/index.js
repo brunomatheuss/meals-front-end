@@ -8,7 +8,7 @@ const Page = () => {
             <b><font size = "20">Welcome to homepage!</font></b>
             <br/>
             <Link to="/meals">
-                <button className="btn first" type="button">
+                <button className="btn btn-secondary btn-lg disabled" type="button">
                     Click here to go to meal list!
                 </button>
             </Link>

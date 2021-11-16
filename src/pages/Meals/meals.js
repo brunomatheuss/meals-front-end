@@ -44,7 +44,7 @@ class Meals extends Component {
                     <input type="text" onChange={(e) => {
                         this.setState({
                             filtro: e.target.value,
-                            filteredMeals: this.state.meals.filter((meal) => meal.strMeal.toLowerCase().startsWith(e.target.value))
+                            filteredMeals: this.state.meals.filter((meal) => meal.strMeal.toLowerCase().startsWith(e.target.value.toLowerCase()))
                         });
                         if(e.target.value == ''){
                             this.setState({
