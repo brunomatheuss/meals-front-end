@@ -1,5 +1,6 @@
 import React from 'react';
 import './card-style.css';
+import { Link } from 'react-router-dom';
 
 const Card = props =>{
     return(
@@ -13,8 +14,18 @@ const Card = props =>{
                 <b>Category: </b>
                 {props.category}
                 <br/>
-                <b>Cooking instructions: </b>
-                {props.instructions}
+                {props.instructions ? 
+                <div>
+                    <b>Cooking instructions: </b>
+                    {props.instructions}
+                </div>
+                : <br/>}
+            {   
+               props.showButton == 'true' ? <Link to={'/meals/' + props.name}>
+                <button className="btn btn-outline-success" type="button">
+                   See more
+                </button></Link>  : ''  
+            }                
             </div>
         </div>
     );

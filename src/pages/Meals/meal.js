@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 import loading from '../../gif/loading.gif';
 import Card from '../../Cards/CardUI';
 import '../../index.css';
@@ -48,10 +49,12 @@ class Meal extends Component {
             <div>
                 <br />
                 <div className='center'>
-                    <b>Details</b>
-                    <br />
+                    <Link to={'/meals'}>
+                        <button className="btn btn-outline-danger" type="button">
+                            Go back
+                </button></Link>
                     <div key={this.state.meal.idMeal}>
-                    <Card imgsrc={this.state.meal.strMealThumb} name={this.state.meal.strMeal} category={this.state.meal.strCategory} instructions={this.state.meal.strInstructions} />
+                        <Card imgsrc={this.state.meal.strMealThumb} name={this.state.meal.strMeal} category={this.state.meal.strCategory} instructions={this.state.meal.strInstructions} showButton='false' />
                     </div>
                 </div>
             </div>

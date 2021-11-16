@@ -5,13 +5,13 @@ import Card from '../../Cards/CardUI';
 import '../../index.css';
 
 class Meals extends Component {
+
     state = {
         meals: [],
         filtro: '',
-        loading: true
+        loading: true,
+        filteredMeals: []
     };
-
-
 
     componentDidMount() {
         fetch('https://demo-meals-api.herokuapp.com/v1/meals')
@@ -19,6 +19,7 @@ class Meals extends Component {
             .then(res => {
                 this.setState({
                     meals: res.meals,
+                    filteredMeals: res.meals,
                     loading: false
                 });
             });
@@ -40,19 +41,23 @@ class Meals extends Component {
                 <div className='center'>
                     <b>Search meal</b>
                     <br />
-                    <input type="text" onChange={(e) => this.setState({
-                        filtro: e.target.value
-                    })}></input>
-                    <Link to={'/meals/' + this.state.filtro}>
-                        <button type="button">
-                            Search
-                </button></Link>
-                <br/>
-                    {this.state.meals.map(item => (
+                    <input type="text" onChange={(e) => {
+                        this.setState({
+                            filtro: e.target.value,
+                            filteredMeals: this.state.meals.filter((meal) => meal.strMeal.toLowerCase().startsWith(e.target.value))
+                        });
+                        if(e.target.value == ''){
+                            this.setState({
+                                filteredMeals: this.state.meals,
+                            })
+                        }
+                    }}></input>
+                    <br />
+                    {this.state.filteredMeals.map(item => (
                         <div key={item.idMeal}>
-                        <Card imgsrc={item.strMealThumb} name={item.strMeal} category={item.strCategory} instructions={item.strInstructions} />
+                            <Card imgsrc={item.strMealThumb} name={item.strMeal} category={item.strCategory} showButton='true' />
                         </div>
-                    ))};
+                    ))}
                 </div>
             </div>
         );
