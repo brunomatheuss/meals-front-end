@@ -14,7 +14,6 @@ class Meal extends Component {
 
     async componentDidMount() {
         var { strMeal } = this.props.match.params;
-        console.log(strMeal);
         await fetch('https://demo-meals-api.herokuapp.com/v1/meals/' + strMeal)
             .then(res => res.json())
             .then(res => {
